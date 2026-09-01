@@ -342,49 +342,53 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .tz-logo__icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--tz-primary) 0%, var(--tz-primary-dark) 100%);
-            border-radius: 8px;
+            width: 52px;
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--tz-white);
-            font-family: var(--tz-font-title);
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            box-shadow: 0 4px 12px rgba(219, 8, 5, 0.25);
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .tz-logo__icon svg {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
 
         .tz-logo__text {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            min-width: 0;
         }
 
         .tz-logo__brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2em;
             font-family: var(--tz-font-title);
-            font-size: 1.35rem;
+            font-size: clamp(1.08rem, 1.6vw, 1.8rem);
             font-weight: 800;
-            color: var(--tz-black);
             line-height: 1;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.06em;
+            color: var(--tz-black);
+            white-space: nowrap;
         }
 
-        .tz-logo__brand span {
+        .tz-brand-red {
             color: var(--tz-primary);
         }
 
-        .tz-logo__tagline {
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--tz-gray-medium);
-            margin-top: 3px;
+        .tz-brand-black {
+            color: var(--tz-black);
         }
 
         /* Menu Desktop */
@@ -1777,6 +1781,20 @@
                 display: none;
             }
 
+            .tz-logo {
+                gap: 8px;
+            }
+
+            .tz-logo__icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .tz-logo__brand {
+                font-size: 1.02rem;
+                letter-spacing: -0.05em;
+            }
+
             .tz-hamburger {
                 display: flex;
             }
@@ -1959,10 +1977,15 @@
                 
                 <!-- Logo TZ Transportes -->
                 <a href="#inicio" class="tz-logo" aria-label="TZ Transportes - Home">
-                    <div class="tz-logo__icon">TZ</div>
+                    <div class="tz-logo__icon" aria-hidden="true">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' role='img' aria-label='TZ Transportes logo'>
+                            <rect width='32' height='32' rx='6' fill='#111111'/>
+                            <path d='M6 8h12l-7 10h7v6H6l7-10H6V8z' fill='#DB0805'/>
+                            <circle cx='25' cy='21' r='3' fill='#DB0805'/>
+                        </svg>
+                    </div>
                     <div class="tz-logo__text">
-                        <span class="tz-logo__brand">TZ <span>TRANSPORTES</span></span>
-                        <span class="tz-logo__tagline">Transporte Corporativo B2B</span>
+                        <span class="tz-logo__brand"><span class="tz-brand-red">TZ</span> <span class="tz-brand-black">TRANSPORTES</span></span>
                     </div>
                 </a>
 
@@ -1999,9 +2022,15 @@
     <div class="tz-mobile-menu" id="mobile-menu" aria-hidden="true">
         <div class="tz-mobile-menu__header">
             <div class="tz-logo">
-                <div class="tz-logo__icon">TZ</div>
+                <div class="tz-logo__icon" aria-hidden="true">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' role='img' aria-label='TZ Transportes logo'>
+                        <rect width='32' height='32' rx='6' fill='#111111'/>
+                        <path d='M6 8h12l-7 10h7v6H6l7-10H6V8z' fill='#DB0805'/>
+                        <circle cx='25' cy='21' r='3' fill='#DB0805'/>
+                    </svg>
+                </div>
                 <div class="tz-logo__text">
-                    <span class="tz-logo__brand">TZ <span>TRANSPORTES</span></span>
+                    <span class="tz-logo__brand"><span class="tz-brand-red">TZ</span> <span class="tz-brand-black">TRANSPORTES</span></span>
                 </div>
             </div>
         </div>
