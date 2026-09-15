@@ -164,6 +164,15 @@
             padding-right: 30px;
         }
 
+        .tz-container > *,
+        .tz-header__inner > *,
+        .tz-urgency__grid > *,
+        .tz-events__grid > *,
+        .tz-about__grid > *,
+        .tz-cta-section__grid > * {
+            min-width: 0;
+        }
+
         .tz-section {
             padding-top: 100px;
             padding-bottom: 100px;
@@ -260,7 +269,8 @@
             border-radius: var(--tz-radius-btn);
             transition: var(--tz-transition);
             text-align: center;
-            white-space: nowrap;
+            white-space: normal;
+            min-height: 48px;
         }
 
         .tz-btn--primary {
@@ -334,6 +344,7 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            gap: 16px;
         }
 
         /* Logo da TZ */
@@ -495,7 +506,7 @@
             position: fixed;
             top: 0;
             right: -100%;
-            width: 85%;
+            width: min(85%, 360px);
             max-width: 360px;
             height: 100vh;
             background-color: var(--tz-white);
@@ -615,6 +626,7 @@
         .tz-hero__aux {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             gap: 10px;
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.75);
@@ -631,6 +643,7 @@
         .tz-hero-route {
             display: inline-flex;
             align-items: center;
+            flex-wrap: wrap;
             gap: 12px;
             padding: 10px 18px;
             background: rgba(17, 17, 17, 0.75);
@@ -642,6 +655,7 @@
             font-weight: 700;
             letter-spacing: 0.06em;
             color: var(--tz-white);
+            max-width: 100%;
         }
 
         .tz-hero-route__pulse {
@@ -1487,6 +1501,7 @@
 
         .tz-form-control {
             width: 100%;
+            min-width: 0;
             padding: 13px 16px;
             background-color: var(--tz-gray-light);
             border: 1px solid var(--tz-gray-border);
@@ -1686,6 +1701,7 @@
 
         .tz-footer__bottom-links {
             display: flex;
+            flex-wrap: wrap;
             gap: 24px;
         }
 
@@ -1716,6 +1732,20 @@
                 padding-right: 25px;
             }
 
+            .tz-nav,
+            .tz-header__actions {
+                display: none;
+            }
+
+            .tz-hamburger {
+                display: flex;
+            }
+
+            .tz-logo__icon {
+                width: 44px;
+                height: 44px;
+            }
+
             .tz-section {
                 padding-top: 80px;
                 padding-bottom: 80px;
@@ -1728,6 +1758,10 @@
 
             .tz-hero__title {
                 font-size: 2.8rem;
+            }
+
+            .tz-hero__content {
+                max-width: 620px;
             }
 
             .tz-trust__grid {
@@ -1775,21 +1809,22 @@
            -------------------------------------------------------------------------- */
         @media (max-width: 767px) {
             .tz-container {
-                padding-left: 20px;
-                padding-right: 20px;
+                padding-left: 16px;
+                padding-right: 16px;
             }
 
             .tz-section {
-                padding-top: 65px;
-                padding-bottom: 65px;
+                padding-top: 56px;
+                padding-bottom: 56px;
             }
 
-            .tz-nav, .tz-header__actions {
-                display: none;
+            .tz-section-header {
+                margin-bottom: 36px;
             }
 
             .tz-logo {
                 gap: 8px;
+                min-width: 0;
             }
 
             .tz-logo__icon {
@@ -1802,22 +1837,32 @@
                 letter-spacing: -0.05em;
             }
 
+            .tz-logo__text {
+                overflow: hidden;
+            }
+
+            .tz-logo__brand {
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
             .tz-hamburger {
                 display: flex;
             }
 
             .tz-hero {
-                min-height: 600px;
+                min-height: 0;
                 background: linear-gradient(180deg, rgba(17, 17, 17, 0.92) 0%, rgba(17, 17, 17, 0.75) 100%),
                             url('./frota-tz-home.png?v=2') 42% 56% / cover no-repeat;
             }
 
             .tz-hero__content {
-                padding: 40px 0;
+                max-width: none;
+                padding: 48px 0 44px;
             }
 
             .tz-hero__title {
-                font-size: 2.25rem;
+                font-size: clamp(2rem, 9vw, 2.25rem);
             }
 
             .tz-hero__desc {
@@ -1833,8 +1878,24 @@
                 width: 100%;
             }
 
+            .tz-hero__aux {
+                align-items: flex-start;
+                font-size: 0.8rem;
+                gap: 6px 8px;
+            }
+
+            .tz-hero-route {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                padding: 10px 12px;
+                font-size: 0.68rem;
+                letter-spacing: 0.04em;
+                line-height: 1.4;
+            }
+
             .tz-title-h2 {
-                font-size: 1.85rem;
+                font-size: clamp(1.65rem, 7.5vw, 1.85rem);
             }
 
             .tz-trust__grid {
@@ -1847,7 +1908,23 @@
             }
 
             .tz-urgency__image {
-                height: 320px;
+                height: clamp(260px, 72vw, 320px);
+            }
+
+            .tz-urgency__content,
+            .tz-about__content {
+                padding-right: 0;
+            }
+
+            .tz-urgency__image-badge {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+                padding: 12px 14px;
+            }
+
+            .tz-highlight-text {
+                font-size: 1.15rem;
             }
 
             .tz-solutions__grid {
@@ -1864,7 +1941,7 @@
             }
 
             .tz-events__image {
-                height: 300px;
+                height: clamp(240px, 68vw, 300px);
             }
 
             .tz-events__checklist {
@@ -1875,6 +1952,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .tz-diff-card {
+                padding: 28px 22px;
+            }
+
             .tz-attributes__grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1882,6 +1963,24 @@
             .tz-attr-item {
                 border-right: none;
                 border-bottom: 1px solid var(--tz-dark-border);
+            }
+
+            .tz-attr-item:last-child {
+                border-bottom: none;
+            }
+
+            .tz-routes__map-card {
+                padding: 28px 16px;
+            }
+
+            .tz-route-chain {
+                gap: 14px;
+                margin: 28px 0;
+            }
+
+            .tz-route-node {
+                min-width: 0;
+                padding: 16px 14px;
             }
 
             .tz-routes__highlights {
@@ -1897,6 +1996,16 @@
                 width: 100%;
             }
 
+            .tz-strip__inner {
+                align-items: stretch;
+                gap: 24px;
+                text-align: left;
+            }
+
+            .tz-strip__title {
+                font-size: 1.55rem;
+            }
+
             .tz-process__grid {
                 grid-template-columns: 1fr;
             }
@@ -1907,7 +2016,7 @@
             }
 
             .tz-about__image {
-                height: 300px;
+                height: clamp(250px, 68vw, 300px);
             }
 
             .tz-proof__grid {
@@ -1920,11 +2029,11 @@
             }
 
             .tz-cta-info__title {
-                font-size: 2.1rem;
+                font-size: clamp(1.9rem, 8vw, 2.1rem);
             }
 
             .tz-form-card {
-                padding: 24px 18px;
+                padding: 24px 16px;
             }
 
             .tz-form-grid {
@@ -1940,7 +2049,7 @@
             }
 
             .tz-whatsapp-floating {
-                bottom: 75px;
+                bottom: calc(76px + env(safe-area-inset-bottom));
                 right: 18px;
                 padding: 14px;
                 border-radius: 50%;
@@ -1952,6 +2061,11 @@
 
             .tz-mobile-bar {
                 display: flex;
+                min-height: 60px;
+                height: auto;
+                padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+                text-align: center;
+                line-height: 1.25;
             }
 
             .tz-footer__grid {
@@ -1967,7 +2081,7 @@
             }
 
             body {
-                padding-bottom: 60px; /* Compensação da barra fixa */
+                padding-bottom: calc(60px + env(safe-area-inset-bottom));
             }
         }
     </style>
