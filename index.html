@@ -563,14 +563,14 @@
            -------------------------------------------------------------------------- */
         .tz-hero {
             position: relative;
-            min-height: 700px;
+            min-height: clamp(480px, 36.4583vw, 700px);
             margin-top: var(--tz-header-height);
             display: flex;
             align-items: center;
             color: var(--tz-white);
             overflow: hidden;
             background: linear-gradient(90deg, rgba(17, 17, 17, 0.88) 0%, rgba(17, 17, 17, 0.72) 48%, rgba(17, 17, 17, 0.45) 100%),
-                        url('./frota-tz-home.png') center 56% / cover no-repeat;
+                        url('./frota-tz-home.png?v=2') center center / cover no-repeat;
         }
 
         .tz-hero__content {
@@ -1722,8 +1722,8 @@
             }
 
             .tz-hero {
-                min-height: 620px;
-                background-position: 52% 56%;
+                min-height: 560px;
+                background-position: 50% 52%;
             }
 
             .tz-hero__title {
@@ -1807,9 +1807,9 @@
             }
 
             .tz-hero {
-                min-height: 590px;
+                min-height: 600px;
                 background: linear-gradient(180deg, rgba(17, 17, 17, 0.92) 0%, rgba(17, 17, 17, 0.75) 100%),
-                            url('./frota-tz-home.png') 50% 58% / cover no-repeat;
+                            url('./frota-tz-home.png?v=2') 42% 56% / cover no-repeat;
             }
 
             .tz-hero__content {
@@ -1968,41 +1968,6 @@
 
             body {
                 padding-bottom: 60px; /* Compensação da barra fixa */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .tz-hero {
-                min-height: 570px;
-                background-position: 48% 58%;
-            }
-        }
-
-        @media (max-width: 414px) {
-            .tz-hero {
-                min-height: 560px;
-                background-position: 46% 58%;
-            }
-        }
-
-        @media (max-width: 390px) {
-            .tz-hero {
-                min-height: 550px;
-                background-position: 44% 58%;
-            }
-        }
-
-        @media (max-width: 375px) {
-            .tz-hero {
-                min-height: 540px;
-                background-position: 42% 58%;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .tz-hero {
-                min-height: 530px;
-                background-position: 40% 58%;
             }
         }
     </style>
