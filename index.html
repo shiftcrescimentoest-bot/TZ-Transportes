@@ -1968,16 +1968,39 @@
             }
 
             .tz-attributes__grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px 8px;
             }
 
             .tz-attr-item {
                 border-right: none;
                 border-bottom: 1px solid var(--tz-dark-border);
+                padding: 12px 0;
+                text-align: center;
             }
 
             .tz-attr-item:last-child {
                 border-bottom: none;
+            }
+
+            .tz-attributes .tz-attr-item__code {
+                font-size: clamp(26px, 8vw, 30px);
+                line-height: 1.05;
+                word-break: normal;
+                overflow-wrap: normal;
+                hyphens: none;
+            }
+
+            .tz-attributes .tz-attr-item:last-child .tz-attr-item__code {
+                white-space: nowrap;
+            }
+
+            .tz-attributes .tz-attr-item__label {
+                font-size: 16px;
+                line-height: 1.35;
+                word-break: normal;
+                overflow-wrap: normal;
+                hyphens: none;
             }
 
             .tz-routes__map-card {
